@@ -36,8 +36,6 @@ Node* LinkedList::get_head() const
 
 void LinkedList::insert(Node x)
 {
-    Node* nuevo = new Node();
-    nuevo->elem = x.elem;
 
     Node* aux = this->head;
 
@@ -50,13 +48,13 @@ void LinkedList::insert(Node x)
     }
     if (this->head == aux)
     {
-        this->head = nuevo;
+        this->head = &x;
     }
     else
     {
-        aux2->set_next(nuevo);
+        aux2->set_next(&x);
     }
-    nuevo->next = aux;
+    x.next = aux;
 
     this->size++;
 }
